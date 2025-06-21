@@ -12,6 +12,7 @@
 
 #include "get_next_line.h"
 #include <stdlib.h>
+#include "stdio.h"
 
 int	found_newline(t_list *list)
 {
@@ -108,7 +109,7 @@ void	clean(t_list **list, t_list *new_first_node, char *buf)
 		*list = tmp;
 	}
 	*list = NULL;
-	if (new_first_node->str_buf[0])
+	if (new_first_node && buf && new_first_node->str_buf[0])
 		*list = new_first_node;
 	else
 	{
