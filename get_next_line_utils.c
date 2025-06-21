@@ -99,7 +99,7 @@ void	clean(t_list **list, t_list *new_first_node, char *buf)
 {
 	t_list	*tmp;
 
-	if (*list == NULL)
+	if (list == NULL || *list == NULL)
 		return ;
 	while (*list)
 	{
