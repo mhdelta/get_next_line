@@ -6,7 +6,7 @@
 /*   By: mhenao-p <mhenao-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 03:18:13 by mhenao-p          #+#    #+#             */
-/*   Updated: 2025/06/19 05:26:13 by mhdelta          ###   ########.fr       */
+/*   Updated: 2025/06/25 05:56:38 by mhdelta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ t_list	*find_last_node(t_list *list);
 char	*get_line_test(t_list *list);
 void	copy_str_until_newline(t_list *list, char *str);
 int		len_to_newline(t_list *list);
-int	move_buffer_after_newline(t_list **list);
+int		move_buffer_after_newline(t_list **list);
 char	*get_next_line(int fd);
 void	clean(t_list **list, t_list *clean_node, char *buf);
-int	create_list(t_list **list, int fd);
+int		create_list(t_list **list, int fd);
 
 #endif
