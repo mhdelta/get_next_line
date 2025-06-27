@@ -12,7 +12,6 @@
 
 #include "get_next_line.h"
 #include <stdlib.h>
-#include "stdio.h"
 
 int	found_newline(t_list *list)
 {

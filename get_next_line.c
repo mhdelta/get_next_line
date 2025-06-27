@@ -6,7 +6,7 @@
 /*   By: mhenao-p <mhenao-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 04:10:43 by mhenao-p          #+#    #+#             */
-/*   Updated: 2025/06/25 05:58:51 by mhdelta          ###   ########.fr       */
+/*   Updated: 2025/06/27 09:23:42 by mhenao-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,10 @@ int	create_list(t_list **list, int fd)
 		if (!buf)
 			return (1);
 		char_read = read(fd, buf, BUFFER_SIZE);
-		if (!char_read)
+		if (char_read <= 0)
 		{
 			free(buf);
-			return (0);
+			return (-char_read);
 		}
 		buf[char_read] = '\0';
 		if (append(list, buf))
@@ -109,9 +109,7 @@ char	*get_next_line(int fd)
 	char			*next_line;
 	int				result;
 
-	if (fd < 0 || BUFFER_SIZE < 0)
-		return (NULL);
-	if (read(fd, &next_line, 0) < 0 || create_list(&list, fd))
+	if (fd < 0 || BUFFER_SIZE <= 0 || create_list(&list, fd))
 	{
 		clean(&list, NULL, NULL);
 		return (NULL);
@@ -136,11 +134,12 @@ char	*get_next_line(int fd)
 // {
 // 	int lines = 1;
 // 	char *line;
-// 	int fd = open("t.txt", O_RDONLY);
+// 	int fd = open("get_next_line.c", O_RDONLY);
 
 // 	while((line = get_next_line(fd)))
 // 	{
 // 		printf("%d -> %s\n", lines++, line);
 // 		free(line);
 // 	}
+// 	return 0;
 // }
